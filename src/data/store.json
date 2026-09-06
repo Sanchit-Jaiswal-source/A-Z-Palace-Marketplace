@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": "9bc2afb2-391b-4450-8d79-5aeb01aada25",
+      "name": "Sanchit Jaiswal",
+      "email": "2008sanchitjaiswal@gmail.com",
+      "password": "123456",
+      "role": "buyer",
+      "createdAt": "2026-09-06T09:56:38.088Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Wireless Noise-Cancelling Headphones",
+      "category": "electronics",
+      "description": "Comfortable wireless headphones with active noise cancellation.",
+      "price": 2499,
+      "oldPrice": 3499,
+      "stock": 35,
+      "rating": 4.8,
+      "reviewsCount": 124,
+      "sellerId": "seller-demo",
+      "location": "Chennai",
+      "emoji": "🎧",
+      "tags": [
+        "audio",
+        "wireless",
+        "headphones"
+      ]
+    },
+    {
+      "id": "prod-002",
+      "name": "Everyday Comfort Sneakers",
+      "category": "fashion",
+      "description": "Lightweight sneakers designed for everyday use.",
+      "price": 799,
+      "oldPrice": 999,
+      "stock": 48,
+      "rating": 4.6,
+      "reviewsCount": 86,
+      "sellerId": "seller-demo",
+      "location": "Bengaluru",
+      "emoji": "👟",
+      "tags": [
+        "shoes",
+        "fashion",
+        "sneakers"
+      ]
+    },
+    {
+      "id": "prod-003",
+      "name": "Pro Wireless Gaming Controller",
+      "category": "gaming",
+      "description": "Low-latency wireless controller for compatible gaming devices.",
+      "price": 5499,
+      "oldPrice": 6499,
+      "stock": 20,
+      "rating": 4.9,
+      "reviewsCount": 201,
+      "sellerId": "seller-demo",
+      "location": "Hyderabad",
+      "emoji": "🎮",
+      "tags": [
+        "gaming",
+        "controller",
+        "wireless"
+      ]
+    },
+    {
+      "id": "prod-004",
+      "name": "Minimal Smart Desk Lamp",
+      "category": "home",
+      "description": "Minimal LED desk lamp for study and work spaces.",
+      "price": 1299,
+      "oldPrice": 1699,
+      "stock": 27,
+      "rating": 4.7,
+      "reviewsCount": 53,
+      "sellerId": "seller-demo",
+      "location": "Mumbai",
+      "emoji": "💡",
+      "tags": [
+        "home",
+        "lamp",
+        "desk"
+      ]
+    }
+  ],
+  "carts": [
+    {
+      "id": "5798ba18-2af8-44cf-9210-2e3387d3049d",
+      "userId": "9bc2afb2-391b-4450-8d79-5aeb01aada25",
+      "items": [
+        {
+          "productId": "prod-001",
+          "quantity": 1
+        },
+        {
+          "productId": "prod-003",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "orders": [],
+  "reviews": []
+}
