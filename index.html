@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Z Palace | Buy, Sell & Discover</title>
+  <meta name="description" content="A-Z Palace — a modern marketplace to buy, sell and discover products." />
+  <style>
+    :root{
+      --green-950:#08291f;
+      --green-900:#0e3a2c;
+      --green-800:#12543d;
+      --green-700:#176548;
+      --green-600:#25835a;
+      --green-500:#2d8a61;
+      --green-100:#e7f5ec;
+      --green-50:#f4faf6;
+      --cream:#fbfdfb;
+      --ink:#14251e;
+      --muted:#64736d;
+      --line:#dfeae3;
+      --danger:#c84141;
+      --shadow:0 18px 50px rgba(10,48,33,.10);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--cream);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+
+    /* ---------- TOP NAV ---------- */
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      padding:14px clamp(18px,4vw,64px);
+      background:rgba(251,253,251,.88);
+      border-bottom:1px solid rgba(223,234,227,.8);
+      backdrop-filter:blur(18px);
+    }
+    .nav{
+      width:min(1240px,100%);
+      margin:auto;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-size:1.25rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+      color:var(--green-900);
+      white-space:nowrap;
+    }
+    .brand-mark{
+      width:34px;height:34px;
+      border-radius:11px;
+      display:grid;place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--green-600),var(--green-950));
+      box-shadow:0 7px 18px rgba(23,101,72,.22);
+      font-size:.95rem;
+    }
+    .nav-search{
+      flex:1;
+      max-width:610px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:13px;
+      padding:5px 6px 5px 14px;
+    }
+    .nav-search svg{color:#7c8c85;flex:0 0 20px}
+    .nav-search input{
+      flex:1;min-width:0;
+      border:0;outline:0;background:transparent;
+      padding:9px 4px;
+    }
+    .nav-search button{
+      border:0;
+      color:#fff;
+      background:var(--green-800);
+      padding:9px 18px;
+      border-radius:9px;
+      font-weight:750;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      margin-left:auto;
+    }
+    .nav-link{
+      color:#395047;
+      padding:9px 11px;
+      border-radius:10px;
+      font-weight:650;
+      font-size:.93rem;
+    }
+    .nav-link:hover{background:var(--green-50);color:var(--green-800)}
+    .cart-btn{
+      position:relative;
+      display:flex;align-items:center;gap:6px;
+    }
+    .cart-count{
+      min-width:18px;height:18px;
+      padding:0 4px;
+      border-radius:999px;
+      display:grid;place-items:center;
+      background:var(--green-600);
+      color:#fff;
+      font-size:.68rem;
+      font-weight:800;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      min-height:760px;
+      padding:140px 24px 90px;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .mountains{
+      position:absolute;inset:-30px;
+      z-index:-3;
+      transform:scale(1.04);
+      filter:blur(4px) saturate(1.12);
+      background:
+        radial-gradient(circle at 73% 20%, rgba(255,246,180,.96) 0 52px, rgba(255,246,180,.18) 53px 125px, transparent 126px),
+        linear-gradient(180deg,#a7d7ed 0%,#cbe7ec 32%,#dceede 50%,#78aa82 100%);
+    }
+    .mountains::before,.mountains::after{
+      content:"";position:absolute;left:-4%;right:-4%;
+    }
+    .mountains::before{
+      top:31%;bottom:-5%;
+      background:#46865d;
+      clip-path:polygon(0 55%,10% 31%,18% 48%,30% 10%,38% 40%,50% 5%,61% 38%,72% 14%,84% 45%,94% 22%,100% 40%,100% 100%,0 100%);
+    }
+    .mountains::after{
+      top:45%;bottom:-5%;
+      background:#216b48;
+      clip-path:polygon(0 37%,11% 17%,21% 40%,31% 20%,44% 49%,58% 11%,69% 42%,80% 18%,91% 43%,100% 24%,100% 100%,0 100%);
+    }
+    .hero-fog{
+      position:absolute;inset:43% -10% -5%;
+      z-index:-2;
+      filter:blur(18px);
+      background:
+        radial-gradient(ellipse at 21% 30%,rgba(255,255,255,.72),transparent 28%),
+        radial-gradient(ellipse at 68% 42%,rgba(255,255,255,.55),transparent 31%),
+        linear-gradient(to bottom,transparent,rgba(232,247,237,.57),rgba(220,242,227,.82));
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;z-index:-1;
+      background:linear-gradient(180deg,rgba(7,50,36,.10),rgba(7,50,36,.23) 55%,rgba(7,50,36,.48));
+    }
+    .hero-content{
+      width:min(1040px,100%);
+      text-align:center;
+      color:#fff;
+      animation:rise .75s ease both;
+    }
+    .hero-badge{
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.32);
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(12px);
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-size:.78rem;
+      font-weight:800;
+    }
+    .hero h1{
+      font-size:clamp(4.4rem,11vw,9.8rem);
+      line-height:.88;
+      letter-spacing:-.07em;
+      margin:24px 0 23px;
+      text-shadow:0 12px 45px rgba(0,0,0,.2);
+      font-weight:950;
+    }
+    .hero p{
+      max-width:720px;
+      margin:auto;
+      color:rgba(255,255,255,.94);
+      font-size:clamp(1.05rem,2vw,1.28rem);
+    }
+    .hero-search-shell{
+      width:min(820px,100%);
+      margin:38px auto 0;
+      padding:9px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.34);
+      background:rgba(255,255,255,.15);
+      backdrop-filter:blur(14px);
+      box-shadow:0 24px 65px rgba(0,0,0,.17);
+    }
+    .hero-search{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      background:#fff;
+      border-radius:14px;
+      padding:8px 8px 8px 17px;
+    }
+    .hero-search svg{width:22px;color:#71867b;flex:0 0 22px}
+    .hero-search input{
+      flex:1;min-width:0;
+      border:0;outline:0;background:transparent;
+      padding:12px 6px;
+      font-size:1.06rem;
+    }
+    .hero-search button{
+      border:0;
+      color:#fff;
+      background:var(--green-800);
+      border-radius:11px;
+      padding:13px 24px;
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .hero-search button:hover{background:var(--green-950);transform:translateY(-1px)}
+    .hero-note{
+      min-height:24px;
+      margin-top:10px;
+      color:rgba(255,255,255,.91);
+      font-size:.88rem;
+    }
+
+    /* ---------- CATEGORY STRIP ---------- */
+    .section{
+      padding:78px 24px;
+    }
+    .container{width:min(1240px,100%);margin:auto}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:24px;
+    }
+    .kicker{
+      font-weight:850;
+      color:var(--green-700);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.76rem;
+    }
+    .section-title{
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1;
+      letter-spacing:-.045em;
+      margin-top:8px;
+    }
+    .section-desc{color:var(--muted);max-width:650px;margin-top:8px}
+    .view-all{
+      color:var(--green-700);
+      font-weight:800;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(8,1fr);
+      gap:13px;
+    }
+    .category{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:17px;
+      padding:18px 10px;
+      text-align:center;
+      transition:.22s ease;
+      box-shadow:0 8px 25px rgba(10,48,33,.04);
+    }
+    .category:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cde1d5}
+    .cat-icon{
+      width:46px;height:46px;
+      border-radius:14px;
+      display:grid;place-items:center;
+      background:var(--green-100);
+      margin:0 auto 9px;
+      font-size:1.28rem;
+    }
+    .category strong{font-size:.83rem}
+
+    /* ---------- MARKETPLACE ---------- */
+    .market-section{background:#f6faf7}
+    .filters{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+    .filter-btn,.sort-select{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:9px 15px;
+      color:#4a5c54;
+      font-weight:650;
+    }
+    .filter-btn.active{
+      background:var(--green-800);
+      border-color:var(--green-800);
+      color:#fff;
+    }
+    .sort-select{margin-left:auto;outline:0}
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .product{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      transition:.23s ease;
+      position:relative;
+    }
+    .product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .product-image{
+      aspect-ratio:1/0.86;
+      position:relative;
+      display:grid;place-items:center;
+      overflow:hidden;
+      background:linear-gradient(135deg,#eaf6ee,#d1e7db);
+      font-size:4rem;
+    }
+    .product-image::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,.28),transparent 55%);
+    }
+    .deal{
+      position:absolute;
+      top:12px;left:12px;
+      z-index:2;
+      color:#fff;
+      background:var(--danger);
+      padding:5px 8px;
+      border-radius:7px;
+      font-size:.68rem;
+      font-weight:850;
+    }
+    .wish{
+      position:absolute;right:11px;top:11px;
+      z-index:2;
+      border:0;
+      width:34px;height:34px;
+      border-radius:50%;
+      background:rgba(255,255,255,.88);
+      font-size:1rem;
+      box-shadow:0 4px 13px rgba(0,0,0,.07);
+    }
+    .product-body{padding:16px}
+    .product-category{
+      font-size:.73rem;
+      color:var(--green-700);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .product h3{
+      margin:5px 0 6px;
+      font-size:1rem;
+      line-height:1.25;
+    }
+    .rating{
+      color:#d89017;
+      font-size:.78rem;
+    }
+    .rating span{color:#73827c;margin-left:4px}
+    .price-row{
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      margin-top:11px;
+    }
+    .price{font-size:1.18rem;font-weight:900;color:var(--green-900)}
+    .old-price{font-size:.82rem;color:#98a39e;text-decoration:line-through}
+    .location{font-size:.78rem;color:#7a8882;margin-top:4px}
+    .product-actions{
+      display:grid;
+      grid-template-columns:1fr 42px;
+      gap:8px;
+      margin-top:13px;
+    }
+    .add-cart{
+      border:0;
+      border-radius:10px;
+      padding:10px;
+      background:var(--green-800);
+      color:#fff;
+      font-weight:800;
+    }
+    .quick{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:10px;
+    }
+
+    /* ---------- TRUST / SELL ---------- */
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .promo{
+      min-height:300px;
+      border-radius:26px;
+      padding:34px;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--green-950),var(--green-600));
+      box-shadow:var(--shadow);
+    }
+    .promo::after{
+      content:"";position:absolute;
+      width:280px;height:280px;
+      right:-80px;bottom:-125px;
+      border-radius:50%;
+      border:45px solid rgba(255,255,255,.08);
+    }
+    .promo h3{font-size:2rem;letter-spacing:-.04em;max-width:450px}
+    .promo p{color:rgba(255,255,255,.78);max-width:480px;margin-top:10px}
+    .promo-btn{
+      display:inline-block;
+      margin-top:22px;
+      padding:11px 17px;
+      border-radius:10px;
+      background:#fff;
+      color:var(--green-900);
+      font-weight:850;
+    }
+    .trust-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .trust-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    .trust-item{
+      padding:17px;
+      border-radius:16px;
+      background:var(--green-50);
+    }
+    .trust-item b{display:block;margin-top:6px}
+    .trust-item span{font-size:.82rem;color:var(--muted)}
+
+    /* ---------- ABOUT ---------- */
+    .about{background:#fff}
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:24px;
+    }
+    .about-card{
+      padding:34px;
+      border:1px solid var(--line);
+      border-radius:25px;
+      background:var(--green-50);
+    }
+    .about-card p{color:var(--muted)}
+    .devs{display:grid;gap:12px;margin-top:20px}
+    .dev{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      padding:13px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:15px;
+    }
+    .avatar{
+      width:44px;height:44px;
+      border-radius:13px;
+      display:grid;place-items:center;
+      color:#fff;font-size:.78rem;font-weight:900;
+      background:linear-gradient(135deg,var(--green-600),var(--green-950));
+      flex:0 0 44px;
+    }
+    .dev small{color:var(--muted)}
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      color:rgba(255,255,255,.72);
+      background:var(--green-950);
+      padding:46px 24px 30px;
+    }
+    .footer-grid{
+      width:min(1240px,100%);
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr 1fr;
+      gap:30px;
+    }
+    footer h4{color:#fff;margin-bottom:13px}
+    footer a{display:block;color:rgba(255,255,255,.67);font-size:.88rem;margin:8px 0}
+    footer a:hover{color:#fff}
+    .footer-brand p{max-width:320px;margin-top:10px;font-size:.89rem}
+    .copyright{
+      width:min(1240px,100%);
+      margin:30px auto 0;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      text-align:center;
+      font-size:.8rem;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:25px;
+      transform:translate(-50%,120px);
+      background:var(--green-950);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow:0 15px 35px rgba(0,0,0,.18);
+      z-index:200;
+      opacity:0;
+      transition:.28s ease;
+      pointer-events:none;
+    }
+    .toast.show{transform:translate(-50%,0);opacity:1}
+
+    @keyframes rise{
+      from{opacity:0;transform:translateY(18px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @media(max-width:1050px){
+      .categories{grid-template-columns:repeat(4,1fr)}
+      .products{grid-template-columns:repeat(3,1fr)}
+      .nav-links .optional{display:none}
+    }
+    @media(max-width:820px){
+      .nav{flex-wrap:wrap}
+      .nav-search{order:3;max-width:none;width:100%}
+      .nav-links{margin-left:auto}
+      .hero{padding-top:188px}
+      .split,.about-grid{grid-template-columns:1fr}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1.2fr 1fr 1fr}
+    }
+    @media(max-width:570px){
+      .topbar{padding:11px 13px}
+      .nav{gap:9px}
+      .brand{font-size:1.08rem}
+      .nav-links{gap:0}
+      .nav-link{font-size:.8rem;padding:8px}
+      .nav-link.hide-mobile{display:none}
+      .hero{min-height:700px;padding:180px 15px 75px}
+      .hero h1{font-size:clamp(3.6rem,18vw,5.8rem)}
+      .hero p{font-size:.95rem}
+      .hero-search{flex-wrap:wrap;padding:7px 7px 7px 13px}
+      .hero-search input{width:calc(100% - 30px)}
+      .hero-search button{width:100%}
+      .section{padding:58px 16px}
+      .section-head{align-items:flex-start}
+      .categories{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:1fr}
+      .sort-select{margin-left:0;width:100%}
+      .filters{display:grid;grid-template-columns:repeat(2,1fr)}
+      .filter-btn{width:100%}
+      .trust-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+  
+    .backend-pill{
+      position:fixed;right:17px;bottom:17px;z-index:150;
+      display:flex;align-items:center;gap:7px;
+      background:rgba(14,58,44,.93);color:#fff;
+      border-radius:999px;padding:8px 12px;
+      font-size:.76rem;font-weight:750;
+      box-shadow:0 12px 30px rgba(0,0,0,.17);
+      backdrop-filter:blur(10px);
+    }
+    .backend-dot{width:8px;height:8px;border-radius:50%;background:#85e7a7}
+    .backend-dot.off{background:#ef7373}
+    .modal-backdrop{
+      position:fixed;inset:0;z-index:180;
+      background:rgba(4,25,18,.54);
+      display:none;align-items:center;justify-content:center;
+      padding:20px;
+      backdrop-filter:blur(5px);
+    }
+    .modal-backdrop.open{display:flex}
+    .auth-modal{
+      width:min(430px,100%);
+      background:#fff;border-radius:24px;
+      padding:26px;box-shadow:0 35px 90px rgba(0,0,0,.25);
+      position:relative;
+    }
+    .modal-close{
+      position:absolute;right:15px;top:14px;
+      border:0;background:#f2f6f3;width:32px;height:32px;
+      border-radius:50%;font-size:1.1rem;
+    }
+    .auth-modal h3{font-size:1.7rem;letter-spacing:-.04em}
+    .auth-modal p{color:var(--muted);font-size:.9rem;margin-top:5px}
+    .auth-tabs{display:flex;gap:5px;background:#f1f7f3;padding:4px;border-radius:11px;margin:20px 0 15px}
+    .auth-tab{flex:1;border:0;background:transparent;border-radius:8px;padding:9px;font-weight:750;color:#607169}
+    .auth-tab.active{background:#fff;color:var(--green-800);box-shadow:0 3px 10px rgba(8,46,31,.08)}
+    .auth-form{display:grid;gap:11px}
+    .auth-form label{font-size:.78rem;font-weight:750;color:#465950}
+    .auth-form input,.auth-form select{
+      width:100%;margin-top:5px;
+      border:1px solid var(--line);outline:0;
+      border-radius:10px;padding:11px 12px;background:#fbfefc;
+    }
+    .auth-form input:focus,.auth-form select:focus{border-color:#9ecbb0}
+    .auth-submit{
+      border:0;border-radius:11px;padding:12px;
+      background:var(--green-800);color:#fff;font-weight:850;
+      margin-top:4px;
+    }
+    .auth-note{min-height:20px;text-align:center;font-size:.8rem;color:var(--muted)}
+    @media(max-width:570px){
+      .backend-pill{bottom:10px;right:10px;font-size:.7rem}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#home" aria-label="A-Z Palace home">
+        <span class="brand-mark">A‑Z</span>
+        <span>A‑Z Palace</span>
+      </a>
+
+      <form class="nav-search" id="navSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>
+        </svg>
+        <input id="navSearchInput" placeholder="Search products, brands & more..." />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="nav-links">
+        <a class="nav-link hide-mobile" href="#categories">Categories</a>
+        <a class="nav-link hide-mobile" href="#sell">Sell</a>
+        <a class="nav-link cart-btn" href="#products">🛒 <span class="cart-count" id="cartCount">0</span></a>
+        <a class="nav-link" href="#about">Account</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="mountains"></div>
+      <div class="hero-fog"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">Buy · Sell · Discover</div>
+        <h1>A‑Z Palace</h1>
+        <p>Your marketplace for products, deals, trusted sellers, and everything in between.</p>
+
+        <div class="hero-search-shell">
+          <form class="hero-search" id="heroSearch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>
+            </svg>
+            <input id="heroSearchInput" type="search" placeholder="What are you looking for today?" />
+            <button type="submit">Search Palace</button>
+          </form>
+          <div class="hero-note" id="heroNote"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Explore</div>
+            <h2 class="section-title">Popular categories</h2>
+          </div>
+          <a class="view-all" href="#products">View marketplace →</a>
+        </div>
+
+        <div class="categories">
+          <a class="category" href="#products"><div class="cat-icon">📱</div><strong>Electronics</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">👕</div><strong>Fashion</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">🎮</div><strong>Gaming</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">📚</div><strong>Books</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">🏠</div><strong>Home</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">⚽</div><strong>Sports</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">💻</div><strong>Services</strong></a>
+          <a class="category" href="#products"><div class="cat-icon">✨</div><strong>More</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section market-section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Marketplace</div>
+            <h2 class="section-title">Trending now</h2>
+            <p class="section-desc">Popular picks, everyday essentials, and deals from sellers on A‑Z Palace.</p>
+          </div>
+          <a class="view-all" href="#products">Browse all →</a>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="electronics">Electronics</button>
+          <button class="filter-btn" data-filter="fashion">Fashion</button>
+          <button class="filter-btn" data-filter="gaming">Gaming</button>
+          <button class="filter-btn" data-filter="home">Home</button>
+          <select class="sort-select" id="sortSelect" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="products" id="productGrid">
+          <article class="product" data-category="electronics" data-price="2499">
+            <div class="product-image"><span class="deal">29% OFF</span><button class="wish">♡</button>🎧</div>
+            <div class="product-body">
+              <div class="product-category">Electronics</div>
+              <h3>Wireless Noise-Cancelling Headphones</h3>
+              <div class="rating">★★★★★ <span>4.8 · 124 reviews</span></div>
+              <div class="price-row"><span class="price">₹2,499</span><span class="old-price">₹3,499</span></div>
+              <div class="location">📍 Chennai · Free delivery</div>
+              <div class="product-actions"><button class="add-cart">Add to cart</button><button class="quick">↗</button></div>
+            </div>
+          </article>
+
+          <article class="product" data-category="fashion" data-price="799">
+            <div class="product-image"><span class="deal">20% OFF</span><button class="wish">♡</button>👟</div>
+            <div class="product-body">
+              <div class="product-category">Fashion</div>
+              <h3>Everyday Comfort Sneakers</h3>
+              <div class="rating">★★★★★ <span>4.6 · 86 reviews</span></div>
+              <div class="price-row"><span class="price">₹799</span><span class="old-price">₹999</span></div>
+              <div class="location">📍 Bengaluru · Fast delivery</div>
+              <div class="product-actions"><button class="add-cart">Add to cart</button><button class="quick">↗</button></div>
+            </div>
+          </article>
+
+          <article class="product" data-category="gaming" data-price="5499">
+            <div class="product-image"><span class="deal">15% OFF</span><button class="wish">♡</button>🎮</div>
+            <div class="product-body">
+              <div class="product-category">Gaming</div>
+              <h3>Pro Wireless Gaming Controller</h3>
+              <div class="rating">★★★★★ <span>4.9 · 201 reviews</span></div>
+              <div class="price-row"><span class="price">₹5,499</span><span class="old-price">₹6,499</span></div>
+              <div class="location">📍 Hyderabad · Free delivery</div>
+              <div class="product-actions"><button class="add-cart">Add to cart</button><button class="quick">↗</button></div>
+            </div>
+          </article>
+
+          <article class="product" data-category="home" data-price="1299">
+            <div class="product-image"><button class="wish">♡</button>💡</div>
+            <div class="product-body">
+              <div class="product-category">Home</div>
+              <h3>Minimal Smart Desk Lamp</h3>
+              <div class="rating">★★★★★ <span>4.7 · 53 reviews</span></div>
+              <div class="price-row"><span class="price">₹1,299</span><span class="old-price">₹1,699</span></div>
+              <div class="location">📍 Mumbai · Delivery available</div>
+              <div class="product-actions"><button class="add-cart">Add to cart</button><button class="quick">↗</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sell">
+      <div class="container split">
+        <article class="promo">
+          <div class="kicker" style="color:#bfe9ce">For sellers</div>
+          <h3 style="margin-top:8px">Turn your products into your next opportunity.</h3>
+          <p>List products, reach new buyers, manage orders, and grow your storefront on A‑Z Palace.</p>
+          <a class="promo-btn" href="#about" id="sellBtn">Start selling →</a>
+        </article>
+
+        <article class="trust-card">
+          <div class="kicker">Why A‑Z Palace?</div>
+          <h2 style="font-size:2rem;letter-spacing:-.04em;margin-top:7px">Made for confident shopping.</h2>
+          <div class="trust-grid">
+            <div class="trust-item"><div>🔒</div><b>Secure checkout</b><span>Designed for safer payments.</span></div>
+            <div class="trust-item"><div>✓</div><b>Trusted sellers</b><span>Ratings help you choose.</span></div>
+            <div class="trust-item"><div>↩</div><b>Easy returns</b><span>Simple post-purchase support.</span></div>
+            <div class="trust-item"><div>⚡</div><b>Fast discovery</b><span>Search and filter with ease.</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">About A‑Z Palace</div>
+            <h2 class="section-title">A marketplace built around discovery.</h2>
+            <p class="section-desc">A‑Z Palace combines a calm, memorable brand experience with the tools people expect from a modern marketplace.</p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <h3 style="font-size:1.45rem;margin-bottom:10px">Our vision</h3>
+            <p>
+              The goal of A‑Z Palace is to create one welcoming place where buyers can
+              discover useful products and sellers can build their businesses. The
+              platform can grow from this frontend into a full marketplace with
+              accounts, payments, seller dashboards, inventory, orders, reviews, and
+              location-aware discovery.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <h3 style="font-size:1.45rem">Meet the developers</h3>
+            <div class="devs">
+              <div class="dev"><div class="avatar">FE</div><div><strong>Frontend Developer</strong><br><small>Interface & user experience</small></div></div>
+              <div class="dev"><div class="avatar">BE</div><div><strong>Backend Developer</strong><br><small>Search, accounts & platform services</small></div></div>
+              <div class="dev"><div class="avatar">UI</div><div><strong>UI / Design</strong><br><small>Visual identity & interaction design</small></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home" style="color:#fff"><span class="brand-mark">A‑Z</span><span>A‑Z Palace</span></a>
+        <p>A modern marketplace for buying, selling, and discovering great products.</p>
+      </div>
+      <div><h4>Marketplace</h4><a href="#products">Trending products</a><a href="#categories">Categories</a><a href="#sell">Sell on A‑Z Palace</a></div>
+      <div><h4>Support</h4><a href="#about">About us</a><a href="#about">Help center</a><a href="#about">Returns</a></div>
+      <div><h4>Account</h4><a href="#about">My account</a><a href="#products">My wishlist</a><a href="#products">My orders</a></div>
+    </div>
+    <div class="copyright">© 2026 <strong>A‑Z Palace</strong> · Built for discovery.</div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="backend-pill" id="backendStatus">
+    <span class="backend-dot" id="backendDot"></span>
+    <span id="backendText">Checking marketplace API…</span>
+  </div>
+
+  <div class="modal-backdrop" id="authBackdrop" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="auth-modal">
+      <button class="modal-close" id="authClose" aria-label="Close">×</button>
+      <h3 id="authTitle">Welcome to A‑Z Palace</h3>
+      <p>Sign in to use your cart and orders, or create a new account.</p>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-mode="login">Login</button>
+        <button class="auth-tab" data-mode="register">Register</button>
+      </div>
+      <form class="auth-form" id="authForm">
+        <div id="nameField" style="display:none">
+          <label>Full name<input id="authName" type="text" autocomplete="name" placeholder="Your name"></label>
+        </div>
+        <label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label>Password<input id="authPassword" type="password" autocomplete="current-password" placeholder="At least 6 characters" required></label>
+        <div id="roleField" style="display:none">
+          <label>Account type
+            <select id="authRole">
+              <option value="buyer">Buyer</option>
+              <option value="seller">Seller</option>
+            </select>
+          </label>
+        </div>
+        <button class="auth-submit" type="submit" id="authSubmit">Login</button>
+        <div class="auth-note" id="authNote"></div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script>
+    // A-Z Palace frontend ↔ backend connection
+    const API = "http://localhost:5000/api";
+    const toast = document.getElementById("toast");
+    const cartCount = document.getElementById("cartCount");
+    const productGrid = document.getElementById("productGrid");
+    const backendDot = document.getElementById("backendDot");
+    const backendText = document.getElementById("backendText");
+    let cart = 0;
+    let currentProducts = [];
+    let authMode = "login";
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(()=>toast.classList.remove("show"), 2400);
+    }
+
+    function authToken(){
+      return localStorage.getItem("azp_token");
+    }
+
+    function money(value){
+      return new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(value);
+    }
+
+    async function api(path, options = {}){
+      const headers = {...(options.headers || {})};
+      if(options.body && !headers["Content-Type"]) headers["Content-Type"] = "application/json";
+      const token = authToken();
+      if(token) headers.Authorization = `Bearer ${token}`;
+
+      const response = await fetch(API + path, {...options, headers});
+      const data = await response.json().catch(()=>({}));
+      if(!response.ok){
+        throw new Error(data.error || `Request failed (${response.status})`);
+      }
+      return data;
+    }
+
+    function renderProducts(products){
+      currentProducts = products;
+      if(!products.length){
+        productGrid.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:55px 20px;background:#fff;border:1px solid #dfeae3;border-radius:20px;color:#64736d">
+            <div style="font-size:2.4rem">🔎</div>
+            <h3 style="margin-top:10px;color:#14251e">No products found</h3>
+            <p>Try another search or category.</p>
+          </div>`;
+        return;
+      }
+
+      productGrid.innerHTML = products.map((p, index) => `
+        <article class="product" data-category="${escapeHtml(p.category)}" data-price="${p.price}">
+          <div class="product-image">
+            ${p.oldPrice && p.oldPrice > p.price ? `<span class="deal">${Math.round((1-p.price/p.oldPrice)*100)}% OFF</span>` : ""}
+            <button class="wish" data-wish="${escapeHtml(p.id)}">♡</button>
+            ${escapeHtml(p.emoji || "📦")}
+          </div>
+          <div class="product-body">
+            <div class="product-category">${escapeHtml(p.category)}</div>
+            <h3>${escapeHtml(p.name)}</h3>
+            <div class="rating">★★★★★ <span>${Number(p.rating || 0).toFixed(1)} · ${p.reviewsCount || 0} reviews</span></div>
+            <div class="price-row"><span class="price">${money(p.price)}</span>${p.oldPrice ? `<span class="old-price">${money(p.oldPrice)}</span>` : ""}</div>
+            <div class="location">📍 ${escapeHtml(p.location || "India")} · ${p.stock > 0 ? "In stock" : "Out of stock"}</div>
+            <div class="product-actions">
+              <button class="add-cart" data-product="${escapeHtml(p.id)}" ${p.stock < 1 ? "disabled" : ""}>${p.stock < 1 ? "Out of stock" : "Add to cart"}</button>
+              <button class="quick" data-quick="${escapeHtml(p.id)}">↗</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      productGrid.querySelectorAll(".add-cart").forEach(btn=>{
+        btn.addEventListener("click", ()=>addToCart(btn.dataset.product, btn));
+      });
+      productGrid.querySelectorAll(".wish").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          btn.textContent = btn.textContent === "♡" ? "♥" : "♡";
+          showToast(btn.textContent === "♥" ? "Added to wishlist" : "Removed from wishlist");
+        });
+      });
+      productGrid.querySelectorAll(".quick").forEach(btn=>{
+        btn.addEventListener("click", ()=>openProduct(btn.dataset.quick));
+      });
+    }
+
+    function escapeHtml(value){
+      return String(value ?? "").replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+      }[c]));
+    }
+
+    async function loadProducts(params = ""){
+      try{
+        const data = await api(`/products${params}`);
+        renderProducts(data.products || []);
+        document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});
+      }catch(error){
+        showToast(error.message);
+      }
+    }
+
+    async function checkBackend(){
+      try{
+        await api("/health");
+        backendDot.classList.remove("off");
+        backendText.textContent = "Marketplace API connected";
+        await loadProducts();
+      }catch(error){
+        backendDot.classList.add("off");
+        backendText.textContent = "Backend offline";
+        showToast("Start the backend with: npm.cmd start");
+      }
+    }
+
+    function doSearch(query){
+      const value = query.trim();
+      if(!value){
+        showToast("Type something to search.");
+        return;
+      }
+      document.getElementById("heroNote").textContent = `Searching A‑Z Palace for “${value}” …`;
+      loadProducts(`?search=${encodeURIComponent(value)}`);
+    }
+
+    document.getElementById("heroSearch").addEventListener("submit", e=>{
+      e.preventDefault();
+      doSearch(document.getElementById("heroSearchInput").value);
+    });
+
+    document.getElementById("navSearch").addEventListener("submit", e=>{
+      e.preventDefault();
+      doSearch(document.getElementById("navSearchInput").value);
+    });
+
+    async function addToCart(productId, button){
+      if(!authToken()){
+        showAuth("login");
+        showToast("Please login first");
+        return;
+      }
+      try{
+        await api("/cart/items", {
+          method:"POST",
+          body:JSON.stringify({productId,quantity:1})
+        });
+        button.textContent = "Added ✓";
+        cart++;
+        cartCount.textContent = cart;
+        showToast("Product added to your backend cart");
+      }catch(error){
+        showToast(error.message);
+      }
+    }
+
+    async function openProduct(productId){
+      try{
+        const p = await api(`/products/${encodeURIComponent(productId)}`);
+        showToast(`${p.name} · ${money(p.price)} · ${p.stock} in stock`);
+      }catch(error){
+        showToast(error.message);
+      }
+    }
+
+    async function refreshCart(){
+      if(!authToken()){
+        showAuth("login");
+        return;
+      }
+      try{
+        const data = await api("/cart");
+        cartCount.textContent = data.itemCount || 0;
+        cart = data.itemCount || 0;
+        showToast(`${data.itemCount || 0} item(s) in your cart · ${money(data.subtotal || 0)}`);
+      }catch(error){
+        showToast(error.message);
+      }
+    }
+
+    // Real category filtering against the backend
+    document.querySelectorAll(".filter-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
+        loadProducts(filter === "all" ? "" : `?category=${encodeURIComponent(filter)}`);
+      });
+    });
+
+    document.getElementById("sortSelect").addEventListener("change", e=>{
+      const map = {featured:"featured",low:"price_asc",high:"price_desc"};
+      loadProducts(`?sort=${map[e.target.value] || "featured"}`);
+    });
+
+    document.querySelector(".cart-btn").addEventListener("click", e=>{
+      e.preventDefault();
+      refreshCart();
+    });
+
+    document.getElementById("sellBtn").addEventListener("click", e=>{
+      e.preventDefault();
+      showAuth("register");
+      document.getElementById("authRole").value = "seller";
+    });
+
+    // ---------- Authentication modal ----------
+    const authBackdrop = document.getElementById("authBackdrop");
+    const authForm = document.getElementById("authForm");
+    const authNote = document.getElementById("authNote");
+    const authSubmit = document.getElementById("authSubmit");
+    const nameField = document.getElementById("nameField");
+    const roleField = document.getElementById("roleField");
+
+    function showAuth(mode = "login"){
+      authMode = mode;
+      authBackdrop.classList.add("open");
+      updateAuthMode();
+    }
+    function closeAuth(){ authBackdrop.classList.remove("open"); }
+
+    function updateAuthMode(){
+      document.querySelectorAll(".auth-tab").forEach(t=>t.classList.toggle("active",t.dataset.mode===authMode));
+      const register = authMode === "register";
+      nameField.style.display = register ? "" : "none";
+      roleField.style.display = register ? "" : "none";
+      authSubmit.textContent = register ? "Create account" : "Login";
+      document.getElementById("authTitle").textContent = register ? "Create your A‑Z Palace account" : "Welcome back";
+      document.getElementById("authPassword").autocomplete = register ? "new-password" : "current-password";
+      authNote.textContent = "";
+    }
+
+    document.querySelectorAll(".auth-tab").forEach(tab=>{
+      tab.addEventListener("click",()=>{authMode=tab.dataset.mode;updateAuthMode()});
+    });
+    document.getElementById("authClose").addEventListener("click", closeAuth);
+    authBackdrop.addEventListener("click", e=>{if(e.target===authBackdrop) closeAuth();});
+    document.querySelector('a[href="#about"].nav-link').addEventListener("click", e=>{
+      e.preventDefault();
+      if(authToken()){
+        showToast("You are signed in to A‑Z Palace");
+      }else{
+        showAuth("login");
+      }
+    });
+
+    authForm.addEventListener("submit", async e=>{
+      e.preventDefault();
+      authNote.textContent = "Connecting…";
+      const body = {
+        email: document.getElementById("authEmail").value.trim(),
+        password: document.getElementById("authPassword").value
+      };
+      if(authMode === "register"){
+        body.name = document.getElementById("authName").value.trim();
+        body.role = document.getElementById("authRole").value;
+      }
+      try{
+        const data = await api(`/auth/${authMode === "register" ? "register" : "login"}`,{
+          method:"POST",
+          body:JSON.stringify(body)
+        });
+        localStorage.setItem("azp_token", data.token);
+        localStorage.setItem("azp_user", JSON.stringify(data.user));
+        closeAuth();
+        showToast(`Welcome, ${data.user.name}!`);
+        await refreshCart();
+      }catch(error){
+        authNote.textContent = error.message;
+      }
+    });
+
+    // Start by checking and loading the real backend data.
+    checkBackend();
+  </script>
+
+</body>
+</html>
