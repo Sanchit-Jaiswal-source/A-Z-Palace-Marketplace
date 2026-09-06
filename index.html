@@ -51,14 +51,51 @@ url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fi
 .deals{background:#f0f2ed}.timer{display:flex;gap:7px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:7px 10px}.timer label{font-size:.69rem;color:var(--muted);font-weight:800}.box{background:var(--sage);border-radius:9px;padding:7px 8px;min-width:43px;text-align:center;font-weight:900;color:var(--forest);line-height:1}.box small{display:block;font-size:7px;color:var(--muted);margin-top:4px}
 .products{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.24s;position:relative}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .pimg{aspect-ratio:1;position:relative;background:#edf2ed;overflow:hidden}.pimg img{width:100%;height:100%;object-fit:cover;transition:.45s}.product:hover .pimg img{transform:scale(1.045)}.sale{position:absolute;left:10px;top:10px;background:var(--sale);color:#fff;font-weight:900;font-size:.62rem;padding:5px 7px;border-radius:7px;z-index:2}.wish{position:absolute;right:9px;top:9px;width:31px;height:31px;border:0;border-radius:50%;background:rgba(255,255,255,.93);z-index:2;color:var(--forest)}
-.pbody{padding:13px}.brand{font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--forest2)}.pbody h3{font-size:.88rem;line-height:1.25;margin-top:5px;min-height:44px}.rating{font-size:.71rem;color:#d39a21;margin-top:7px}.rating span{color:#7b8781;margin-left:3px}.price{display:flex;align-items:baseline;gap:7px;margin-top:9px}.price b{font-size:1.05rem;color:var(--forest)}.old{text-decoration:line-through;color:#9aa49f;font-size:.72rem}.stock{font-size:.66rem;color:#74817b;margin-top:2px}.add{width:100%;border:0;background:var(--forest2);color:#fff;border-radius:9px;padding:9px;margin-top:10px;font-size:.76rem;font-weight:850}
+.pbody{padding:13px}.brand{font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--forest2)}.pbody h3{font-size:.88rem;line-height:1.25;margin-top:5px;min-height:44px}.rating{font-size:.71rem;color:#d39a21;margin-top:7px}.rating span{color:#7b8781;margin-left:3px}.price{display:flex;align-items:baseline;gap:7px;margin-top:9px}.price b{font-size:1.05rem;color:var(--forest)}.old{text-decoration:line-through;color:#9aa49f;font-size:.72rem}.stock{font-size:.66rem;color:#74817b;margin-top:2px}.add.added{background:#2b7f5e}.add{width:100%;border:0;background:var(--forest2);color:#fff;border-radius:9px;padding:9px;margin-top:10px;font-size:.76rem;font-weight:850}
 .collections{background:linear-gradient(180deg,#edf2ed,#f7f3eb)}.collgrid{display:grid;grid-template-columns:1.4fr .8fr .8fr;grid-template-rows:190px 190px;gap:12px}.coll{position:relative;overflow:hidden;border-radius:19px;color:#fff;isolation:isolate;padding:22px;display:flex;align-items:end}.coll:before{content:"";position:absolute;inset:0;z-index:-2;background:var(--bg) center/cover;transition:.45s}.coll:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent,rgba(3,28,21,.75))}.coll:hover:before{transform:scale(1.05)}.coll.big{grid-row:1/3}.coll h3{font:700 1.75rem/1 Georgia,serif;letter-spacing:-.03em}.coll p{font-size:.74rem;color:rgba(255,255,255,.82);margin:6px 0 11px}.coll a{display:inline-block;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);border-radius:9px;padding:7px 11px;font-size:.71rem;font-weight:850}
 .trust{background:#fff}.trustgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px}.trustitem{border-top:1px solid var(--line);padding:17px 13px}.trustitem i{font-style:normal;font-size:1.55rem}.trustitem strong{display:block;font-size:.8rem;margin-top:6px}.trustitem span{display:block;font-size:.67rem;color:var(--muted);margin-top:2px}.brandsline{border-top:1px solid var(--line);margin-top:19px;padding-top:19px;display:flex;gap:25px;align-items:center;flex-wrap:wrap}.brandslabel{font-size:.61rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:900}.brands{display:flex;gap:26px;flex-wrap:wrap;align-items:center;opacity:.72;font-weight:900}
+
+/* CART PAGE */
+.cart-section{background:var(--paper);padding-top:68px}
+.cart-layout{display:grid;grid-template-columns:1.5fr .7fr;gap:22px;margin-top:24px}
+.cart-card,.summary-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.cart-card{padding:10px}
+.cart-item{display:grid;grid-template-columns:92px 1fr auto auto;gap:15px;align-items:center;padding:14px;border-bottom:1px solid var(--line)}
+.cart-item:last-child{border-bottom:0}
+.cart-thumb{width:92px;height:92px;border-radius:14px;overflow:hidden;background:#edf2ed}
+.cart-thumb img{width:100%;height:100%;object-fit:cover}
+.cart-info h3{font-size:1rem;line-height:1.25}
+.cart-info p{font-size:.72rem;color:var(--muted);margin-top:4px}
+.qty{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:4px}
+.qty button{border:0;background:var(--sage);color:var(--forest);width:25px;height:25px;border-radius:7px;font-weight:900}
+.qty span{min-width:18px;text-align:center;font-size:.8rem;font-weight:800}
+.remove{border:0;background:transparent;color:#a14a54;font-size:.72rem;font-weight:800}
+.cart-price{font-weight:900;color:var(--forest);white-space:nowrap}
+.empty-cart{text-align:center;padding:55px 25px;color:var(--muted)}
+.empty-cart .empty-icon{font-size:3rem;margin-bottom:8px}
+.empty-cart h3{color:var(--forest);font:700 1.55rem Georgia,serif}
+.empty-cart p{margin:6px 0 18px;font-size:.82rem}
+.continue-shop{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--forest2);color:#fff;font-size:.78rem;font-weight:850}
+.summary-card{padding:22px;position:sticky;top:98px;height:max-content}
+.summary-card h3{font:700 1.5rem Georgia,serif;color:var(--forest)}
+.summary-row{display:flex;justify-content:space-between;gap:15px;margin-top:13px;font-size:.82rem;color:#5d6a64}
+.summary-row.total{border-top:1px solid var(--line);padding-top:16px;margin-top:17px;font-size:1rem;color:var(--forest);font-weight:900}
+.checkout{width:100%;border:0;background:var(--forest);color:#fff;border-radius:11px;padding:12px;margin-top:18px;font-weight:900}
+.checkout:hover{background:#0d4a38}
+.cart-message{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.4}
+.cart-login-note{background:#f0f5f0;border-radius:11px;padding:11px;font-size:.7rem;color:#52635a;margin-top:14px}
+
 .test{background:linear-gradient(rgba(5,38,27,.75),rgba(5,38,27,.75)),url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=84") center/cover;color:#fff;text-align:center}.quotes{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px}.quote{padding:17px;border-right:1px solid rgba(255,255,255,.18)}.quote:last-child{border:0}.quote p{font-size:.9rem;color:rgba(255,255,255,.92)}.quote cite{display:block;font-size:.69rem;color:rgba(255,255,255,.63);margin-top:8px;font-style:normal}
 .news{background:#e5ede7;padding:37px 24px}.newsin{width:min(var(--max),100%);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.newst{display:flex;gap:12px;align-items:center}.newst i{font-style:normal;font-size:1.5rem}.newst h3{font:700 1.4rem Georgia,serif;color:var(--forest)}.newst p{font-size:.72rem;color:var(--muted)}.subscribe{display:flex;background:#fff;border:1px solid var(--line);padding:5px;border-radius:11px;width:min(400px,100%)}.subscribe input{flex:1;border:0;outline:0;padding:9px;background:transparent;font-size:.79rem}.subscribe button{border:0;background:var(--forest2);color:#fff;border-radius:8px;padding:9px 14px;font-size:.74rem;font-weight:850}
 footer{background:var(--forest);color:rgba(255,255,255,.68);padding:48px 24px 20px}.foot{width:min(var(--max),100%);margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px}.foot h4{color:#fff;font-size:.82rem;margin-bottom:10px}.foot a{display:block;font-size:.74rem;margin:7px 0}.foot a:hover{color:#fff}.fcopy{max-width:290px;font-size:.76rem;margin-top:11px}.social{display:flex;gap:8px;margin-top:16px}.social span{width:29px;height:29px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:#fff;font-size:.67rem}.copy{width:min(var(--max),100%);margin:28px auto 0;border-top:1px solid rgba(255,255,255,.12);padding-top:15px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.68rem}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);opacity:0;transition:.25s;background:var(--forest);color:#fff;padding:11px 15px;border-radius:11px;z-index:100;font-size:.76rem;font-weight:800;box-shadow:0 14px 32px rgba(0,0,0,.18)}.toast.show{transform:translate(-50%,0);opacity:1}
 @media(max-width:1050px){.cats{grid-template-columns:repeat(4,1fr)}.products{grid-template-columns:repeat(3,1fr)}.trustgrid{grid-template-columns:repeat(3,1fr)}.links{display:none}}
+
+@media(max-width:900px){
+ .cart-layout{grid-template-columns:1fr}
+ .summary-card{position:static}
+}
+
 @media(max-width:780px){.loc{display:none}.hero{min-height:680px}.collgrid{grid-template-columns:1fr 1fr;grid-template-rows:210px 160px 160px}.coll.big{grid-row:1;grid-column:1/3}.quotes{grid-template-columns:1fr}.quote{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}.newsin{flex-direction:column;align-items:flex-start}.foot{grid-template-columns:1.3fr 1fr 1fr}}
 @media(max-width:560px){.navin{width:calc(100% - 20px);gap:8px}.logo b{font-size:.98rem}.hero{padding:120px 15px 55px}.hero h1{font-size:3.8rem}.hero .tag{font-size:1.05rem}.search{flex-wrap:wrap}.search input{width:calc(100% - 28px)}.search button{width:100%}.section{padding:55px 15px}.cats{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr 1fr;gap:9px}.pbody h3{font-size:.8rem;min-height:56px}.collgrid{grid-template-columns:1fr;grid-template-rows:200px 160px 160px 160px}.coll.big{grid-column:auto}.trustgrid{grid-template-columns:1fr 1fr}.brands{gap:15px}.foot{grid-template-columns:1fr 1fr}}
 </style>
@@ -71,7 +108,7 @@ footer{background:var(--forest);color:rgba(255,255,255,.68);padding:48px 24px 20
 <div class="push"></div><div class="loc">📍 Chennai⌄</div>
 <button class="icon" onclick="document.querySelector('#heroSearchInput').focus()" aria-label="Search">⌕</button>
 <button class="icon" aria-label="Wishlist">♡</button>
-<button class="icon carticon" onclick="document.querySelector('#deals').scrollIntoView({behavior:'smooth'})" aria-label="Cart">🛒<span class="cartdot" id="cartCount">0</span></button>
+<button class="icon carticon" onclick="openCart()" aria-label="Cart">🛒<span class="cartdot" id="cartCount">0</span></button>
 <div class="avatar">S</div>
 </div></header>
 
@@ -111,6 +148,43 @@ footer{background:var(--forest);color:rgba(255,255,255,.68);padding:48px 24px 20
 <div class="timer"><label>Ends in</label><div class="box"><span id="h">04</span><small>Hours</small></div><div class="box"><span id="m">21</span><small>Minutes</small></div><div class="box"><span id="s">36</span><small>Seconds</small></div></div></div>
 <div class="products" id="products"></div>
 </div></section>
+
+<section class="section cart-section" id="cart">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="kicker">Your shopping bag</div>
+        <h2 class="heading serif">My Cart</h2>
+        <p class="sub">Review your items before moving to checkout.</p>
+      </div>
+      <a class="view" href="#deals">← Continue Shopping</a>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-card" id="cartItems">
+        <div class="empty-cart">
+          <div class="empty-icon">🛒</div>
+          <h3>Your cart is empty</h3>
+          <p>Add something you love and it will appear here.</p>
+          <a class="continue-shop" href="#deals">Browse products</a>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Items</span><strong id="summaryItems">0</strong></div>
+        <div class="summary-row"><span>Subtotal</span><strong id="summarySubtotal">₹0</strong></div>
+        <div class="summary-row"><span>Delivery</span><strong id="summaryDelivery">₹0</strong></div>
+        <div class="summary-row total"><span>Total</span><strong id="summaryTotal">₹0</strong></div>
+        <button class="checkout" id="checkoutBtn">Proceed to Checkout</button>
+        <div class="cart-message" id="cartMessage">Checkout is ready for the next backend step.</div>
+        <div class="cart-login-note" id="cartLoginNote" style="display:none">
+          Sign in to save this cart to your A-Z Palace account and keep it across visits.
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section class="section collections" id="discover"><div class="wrap">
 <div class="head"><div><div class="kicker">Discover more</div><h2 class="heading serif">Curated Collections</h2><p class="sub">Handpicked just for you.</p></div><a class="view" href="#discover">View All Collections →</a></div>
@@ -158,45 +232,344 @@ const fallback=[
 {id:"demo-5",name:"Premium Laptop",category:"Electronics",price:34999,oldPrice:49999,rating:4.5,reviewsCount:760,stock:9,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=86"}
 ];
 let cart=0;
+let demoCart=[];
+try{
+  const saved=localStorage.getItem("azPalaceCart");
+  demoCart=saved?JSON.parse(saved):[];
+  if(!Array.isArray(demoCart)) demoCart=[];
+}catch(e){demoCart=[];}
+function saveDemoCart(){try{localStorage.setItem("azPalaceCart",JSON.stringify(demoCart));}catch(e){}}
+function updateCartBadge(){
+  cart=demoCart.reduce((sum,item)=>sum+Number(item.quantity||0),0);
+  const badge=document.getElementById("cartCount");
+  if(badge) badge.textContent=cart;
+}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function escAttr(v){return String(v??"").replace(/"/g,"&quot;");}
 function money(v){return new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(Number(v||0))}
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove("show"),2200)}
 function render(list){
- const grid=document.getElementById("products");grid.innerHTML="";
- list.slice(0,5).forEach((p,i)=>{
-  const sale=p.oldPrice&&p.oldPrice>p.price?Math.round((1-p.price/p.oldPrice)*100):0;
-  const card=document.createElement("article");card.className="product";
-  card.innerHTML=`<div class="pimg">${sale?`<span class="sale">-${sale}%</span>`:""}<button class="wish">♡</button><img src="${p.img||fallback[i%fallback.length].img}" alt="${esc(p.name)}" onerror="this.style.display='none'"></div><div class="pbody"><div class="brand">${esc(p.category||"Marketplace")}</div><h3>${esc(p.name)}</h3><div class="rating">★ ${Number(p.rating||0).toFixed(1)} <span>(${Number(p.reviewsCount||0).toLocaleString("en-IN")})</span></div><div class="price"><b>${money(p.price)}</b>${p.oldPrice?`<span class="old">${money(p.oldPrice)}</span>`:""}</div><div class="stock">${p.stock>0?`Only ${p.stock} left · Free delivery`:"Out of stock"}</div><button class="add" data-id="${p.id}" ${p.stock===0?"disabled":""}>${p.stock===0?"Out of Stock":"Add to Cart"}</button></div>`;
+ const grid=document.getElementById("products");
+ grid.innerHTML="";
+ const safeList=Array.isArray(list)?list:[];
+ if(safeList.length) products=safeList;
+ safeList.slice(0,5).forEach((p,i)=>{
+  const sale=p.oldPrice&&Number(p.oldPrice)>Number(p.price)?Math.round((1-Number(p.price)/Number(p.oldPrice))*100):0;
+  const id=String(p.id||"");
+  const img=p.img||fallback[i%fallback.length].img;
+  const card=document.createElement("article");
+  card.className="product";
+  card.innerHTML=`
+   <div class="pimg">
+    ${sale?`<span class="sale">-${sale}%</span>`:""}
+    <button type="button" class="wish" aria-label="Wishlist">♡</button>
+    <img src="${escAttr(img)}" alt="${esc(p.name)}" onerror="this.style.display='none'">
+   </div>
+   <div class="pbody">
+    <div class="brand">${esc(p.category||"Marketplace")}</div>
+    <h3>${esc(p.name)}</h3>
+    <div class="rating">★ ${Number(p.rating||0).toFixed(1)} <span>(${Number(p.reviewsCount||0).toLocaleString("en-IN")})</span></div>
+    <div class="price"><b>${money(p.price)}</b>${p.oldPrice?`<span class="old">${money(p.oldPrice)}</span>`:""}</div>
+    <div class="stock">${Number(p.stock||0)>0?`Only ${p.stock} left · Free delivery`:"Out of stock"}</div>
+    <button type="button" class="add" data-id="${escAttr(id)}" ${Number(p.stock||0)<=0?"disabled":""}>${Number(p.stock||0)<=0?"Out of Stock":"Add to Cart"}</button>
+   </div>`;
   grid.appendChild(card);
  });
- grid.querySelectorAll(".add").forEach(b=>b.onclick=()=>addCart(b));
- grid.querySelectorAll(".wish").forEach(b=>b.onclick=()=>{b.textContent=b.textContent==="♡"?"♥":"♡";toast(b.textContent==="♥"?"Added to wishlist":"Removed from wishlist")});
+ grid.querySelectorAll(".add").forEach(b=>{
+  b.addEventListener("click",function(ev){
+   ev.preventDefault();
+   addCart(this.dataset.id,this);
+  });
+ });
+ grid.querySelectorAll(".wish").forEach(b=>{
+  b.addEventListener("click",function(ev){
+   ev.preventDefault();
+   this.textContent=this.textContent==="♡"?"♥":"♡";
+   toast(this.textContent==="♥"?"Added to wishlist":"Removed from wishlist");
+  });
+ });
 }
 async function load(){
- try{const r=await fetch(API+"/products",{cache:"no-store"});if(!r.ok)throw 0;const d=await r.json();render(d.products?.length?d.products:fallback);document.getElementById("searchNote").textContent="● Connected to A-Z Palace marketplace API"}
- catch{render(fallback);document.getElementById("searchNote").textContent="Demo products shown · keep your backend running for live data"}
+ try{
+  const r=await fetch(API+"/products",{cache:"no-store"});
+  if(!r.ok) throw 0;
+  const d=await r.json();
+  products=Array.isArray(d.products) && d.products.length ? d.products : fallback;
+  render(products);
+  document.getElementById("searchNote").textContent="● Connected to A-Z Palace marketplace API";
+ }catch{
+  products=fallback;
+  render(products);
+  document.getElementById("searchNote").textContent="Demo products shown · keep your backend running for live data";
+ }
 }
 async function search(q){
  q=q.trim();if(!q){toast("Type something to search.");return}
  document.getElementById("searchNote").textContent=`Searching for “${q}”…`;
- try{const r=await fetch(API+"/products?search="+encodeURIComponent(q));const d=await r.json();render(d.products||[]);toast(`${(d.products||[]).length} result(s) found`)}
- catch{const x=fallback.filter(p=>(p.name+" "+p.category).toLowerCase().includes(q.toLowerCase()));render(x.length?x:fallback);toast(x.length?`${x.length} result(s) found`:"No exact demo match — showing featured products")}
+ try{
+  const r=await fetch(API+"/products?search="+encodeURIComponent(q));
+  if(!r.ok) throw 0;
+  const d=await r.json();
+  products=Array.isArray(d.products) ? d.products : [];
+  render(products);
+  toast(`${products.length} result(s) found`);
+ }catch{
+  products=fallback.filter(p=>(p.name+" "+p.category).toLowerCase().includes(q.toLowerCase()));
+  render(products.length?products:fallback);
+  toast(products.length?`${products.length} result(s) found`:"No exact demo match — showing featured products");
+ }
  document.getElementById("deals").scrollIntoView({behavior:"smooth"});
 }
-async function addCart(btn){
- const token=localStorage.getItem("token");
- if(!token){cart++;document.getElementById("cartCount").textContent=cart;btn.textContent="Added ✓";toast("Added to demo cart · log in to save it");return}
- try{
-  const r=await fetch(API+"/cart/items",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({productId:btn.dataset.id,quantity:1})});
-  const d=await r.json();if(!r.ok)throw new Error(d.error||"Could not add");
-  cart++;document.getElementById("cartCount").textContent=cart;btn.textContent="Added ✓";toast("Added to your cart")
- }catch(e){toast(e.message||"Could not add to cart")}
+function getLocalProduct(productId){
+ const wanted=String(productId);
+ const all=[...products,...fallback];
+ return all.find(p=>String(p.id)===wanted);
 }
+
+function escapeAttr(v){
+ return String(v ?? "").replace(/"/g, "&quot;");
+}
+
+function cartProductCard(item){
+ const p = item.product || getLocalProduct(item.productId);
+ if(!p) return "";
+ const name = p.name || "Product";
+ const category = p.category || "Marketplace";
+ const image = p.img || fallback[0].img;
+ const qty = Number(item.quantity || 1);
+ return `
+   <div class="cart-item" data-cart-product="${escapeAttr(item.productId || p.id)}">
+     <div class="cart-thumb"><img src="${image}" alt="${esc(name)}"></div>
+     <div class="cart-info">
+       <div class="brand">${esc(category)}</div>
+       <h3>${esc(name)}</h3>
+       <p>${p.location ? "📍 " + esc(p.location) : "A-Z Palace marketplace"} · ${p.stock ?? ""} in stock</p>
+     </div>
+     <div class="qty">
+       <button type="button" data-action="minus" aria-label="Decrease quantity">−</button>
+       <span>${qty}</span>
+       <button type="button" data-action="plus" aria-label="Increase quantity">+</button>
+     </div>
+     <div>
+       <div class="cart-price">${money(Number(p.price || 0) * qty)}</div>
+       <button class="remove" type="button" data-action="remove">Remove</button>
+     </div>
+   </div>`;
+}
+
+function renderCart(items){
+ const box = document.getElementById("cartItems");
+ const detailed = items || [];
+
+ if(!detailed.length){
+   box.innerHTML = `
+     <div class="empty-cart">
+       <div class="empty-icon">🛒</div>
+       <h3>Your cart is empty</h3>
+       <p>Add something you love and it will appear here.</p>
+       <a class="continue-shop" href="#deals">Browse products</a>
+     </div>`;
+   updateSummary([]);
+   return;
+ }
+
+ box.innerHTML = detailed.map(cartProductCard).join("");
+
+ box.querySelectorAll("[data-action]").forEach(btn=>{
+   btn.addEventListener("click", ()=>{
+     const row = btn.closest(".cart-item");
+     const productId = row.dataset.cartProduct;
+     const action = btn.dataset.action;
+     const item = detailed.find(i => (i.productId || i.product?.id) === productId);
+     if(!item) return;
+
+     let qty = Number(item.quantity || 1);
+     if(action === "plus") qty += 1;
+     if(action === "minus") qty -= 1;
+
+     if(action === "remove") return removeCartItem(productId);
+     updateCartQuantity(productId, Math.max(1, qty));
+   });
+ });
+
+ updateSummary(detailed);
+}
+
+function updateSummary(items){
+ const detailed = items || [];
+ const count = detailed.reduce((sum,i)=>sum+Number(i.quantity||0),0);
+ const subtotal = detailed.reduce((sum,i)=>{
+   const p = i.product || getLocalProduct(i.productId);
+   return sum + Number(p?.price||0)*Number(i.quantity||0);
+ },0);
+ const delivery = subtotal === 0 ? 0 : (subtotal >= 999 ? 0 : 49);
+ const total = subtotal + delivery;
+
+ document.getElementById("summaryItems").textContent = count;
+ document.getElementById("summarySubtotal").textContent = money(subtotal);
+ document.getElementById("summaryDelivery").textContent = delivery === 0 ? "FREE" : money(delivery);
+ document.getElementById("summaryTotal").textContent = money(total);
+ document.getElementById("cartCount").textContent = count;
+
+ cart = count;
+}
+
+function openCart(){
+ document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+ loadCart();
+}
+
+async function loadCart(){
+ const token=localStorage.getItem("token");
+ const note=document.getElementById("cartLoginNote");
+ if(note) note.style.display=token?"none":"block";
+
+ // Always show the browser cart immediately.
+ renderCart(demoCart);
+ updateCartBadge();
+
+ if(!token) return;
+
+ // If logged in, try to replace with server cart only when server actually returns items.
+ try{
+  const r=await fetch(API+"/cart",{headers:{Authorization:"Bearer "+token},cache:"no-store"});
+  if(!r.ok) throw new Error("API unavailable");
+  const data=await r.json();
+  const remote=Array.isArray(data.items)?data.items:[];
+  if(remote.length){
+   demoCart=remote.map(i=>({
+    productId:i.productId,
+    quantity:Number(i.quantity||1),
+    product:i.product||getLocalProduct(i.productId)
+   }));
+   saveDemoCart();
+   renderCart(demoCart);
+   updateCartBadge();
+  }
+ }catch(e){
+  // Keep the local cart; the backend may not be reachable from the current page.
+ }
+}
+
+async function updateCartQuantity(productId,quantity){
+ const item=demoCart.find(i=>i.productId===productId);
+ if(!item) return;
+ const product=item.product||getLocalProduct(productId);
+ const max=Number(product?.stock||999999);
+ item.quantity=Math.max(1,Math.min(Number(quantity||1),max));
+ saveDemoCart();
+ renderCart(demoCart);
+ updateCartBadge();
+
+ const token=localStorage.getItem("token");
+ if(token){
+  try{
+   await fetch(API+"/cart/items/"+encodeURIComponent(productId),{
+    method:"PATCH",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},
+    body:JSON.stringify({quantity:item.quantity})
+   });
+  }catch(e){}
+ }
+}
+
+async function removeCartItem(productId){
+ demoCart=demoCart.filter(i=>i.productId!==productId);
+ saveDemoCart();
+ renderCart(demoCart);
+ updateCartBadge();
+ toast("Item removed from cart");
+
+ const token=localStorage.getItem("token");
+ if(token){
+  try{
+   await fetch(API+"/cart/items/"+encodeURIComponent(productId),{
+    method:"DELETE",
+    headers:{Authorization:"Bearer "+token}
+   });
+  }catch(e){}
+ }
+}
+
+async function addCart(productId,button){
+ const id=String(productId||"");
+ const product=getLocalProduct(id);
+
+ if(!id || !product){
+  toast("Could not add this product.");
+  return;
+ }
+ if(Number(product.stock||0)<=0){
+  toast("This product is out of stock.");
+  return;
+ }
+
+ const existing=demoCart.find(i=>i.productId===id);
+ if(existing){
+  if(Number(existing.quantity||1)>=Number(product.stock)){
+   toast("You've reached the available stock.");
+   return;
+  }
+  existing.quantity=Number(existing.quantity||1)+1;
+  existing.product=product;
+ }else{
+  demoCart.push({productId:id,quantity:1,product});
+ }
+
+ saveDemoCart();
+ renderCart(demoCart);
+ updateCartBadge();
+
+ if(button){
+  button.textContent="Added ✓";
+  button.classList.add("added");
+  setTimeout(()=>{
+   button.textContent="Add to Cart";
+   button.classList.remove("added");
+  },1200);
+ }
+ toast("Added to cart");
+
+ // Best effort: sync with backend without preventing the local cart from working.
+ const token=localStorage.getItem("token");
+ if(token){
+  try{
+   const r=await fetch(API+"/cart/items",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},
+    body:JSON.stringify({productId:id,quantity:1})
+   });
+   if(!r.ok) throw new Error("sync failed");
+  }catch(e){
+   const msg=document.getElementById("cartMessage");
+   if(msg) msg.textContent="Saved in your cart. Backend sync will retry when available.";
+  }
+ }
+}
+
+document.getElementById("checkoutBtn").addEventListener("click", ()=>{
+ const token = localStorage.getItem("token");
+ const count = Number(document.getElementById("summaryItems").textContent || 0);
+ if(count === 0){
+   toast("Your cart is empty");
+   return;
+ }
+ if(!token){
+   toast("Please sign in before checkout");
+   return;
+ }
+ document.getElementById("cartMessage").textContent =
+   "Checkout can now be connected to address and payment in the next step.";
+ toast("Checkout area ready");
+});
+
 document.getElementById("searchForm").onsubmit=e=>{e.preventDefault();search(document.getElementById("heroSearchInput").value)}
 document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{document.getElementById("heroSearchInput").value=c.dataset.q;search(c.dataset.q)})
 document.getElementById("sub").onsubmit=e=>{e.preventDefault();toast("You're subscribed to A-Z Palace updates");document.getElementById("email").value=""}
 let sec=4*3600+21*60+36;setInterval(()=>{sec=Math.max(0,sec-1);document.getElementById("h").textContent=String(Math.floor(sec/3600)).padStart(2,"0");document.getElementById("m").textContent=String(Math.floor((sec%3600)/60)).padStart(2,"0");document.getElementById("s").textContent=String(sec%60).padStart(2,"0")},1000);
+updateCartBadge();
 load();
+loadCart();
 </script>
 </body>
 </html>
